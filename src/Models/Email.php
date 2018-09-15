@@ -23,11 +23,11 @@ class Email extends Model
         'body',
         'to',
         'cc',
-        'bcc'
+        'bcc',
     ];
 
     /**
-     * Getter for $tableKeyType
+     * Getter for $tableKeyType.
      *
      * @return array
      */

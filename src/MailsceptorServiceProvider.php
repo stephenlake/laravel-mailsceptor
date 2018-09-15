@@ -7,7 +7,7 @@ use Illuminate\Mail\MailServiceProvider;
 class MailsceptorServiceProvider extends MailServiceProvider
 {
     /**
-     * Boot up Mailsceptor
+     * Boot up Mailsceptor.
      *
      * @return void
      */
@@ -21,7 +21,7 @@ class MailsceptorServiceProvider extends MailServiceProvider
     }
 
     /**
-     * Register the core swift mailed with mailsceptor as an outer layer
+     * Register the core swift mailed with mailsceptor as an outer layer.
      *
      * @return void
      */
@@ -33,7 +33,7 @@ class MailsceptorServiceProvider extends MailServiceProvider
     }
 
     /**
-     * Replace the swift mailer instance with Mailsceptor as a hook
+     * Replace the swift mailer instance with Mailsceptor as a hook.
      *
      * @return void
      */
