@@ -10,8 +10,7 @@
     Intercept, reroute, store and/or preview emails before they're submitted.
 </h6>
 <h2 align="center"></h2>
-
-<br><br>
+<br>
 
 <p align="center">
 <a href="https://travis-ci.org/stephenlake/laravel-mailsceptor"><img src="https://travis-ci.org/stephenlake/laravel-mailsceptor.svg?branch=master" alt="Build Status"></a>
