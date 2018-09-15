@@ -17,9 +17,7 @@
 <a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-<h2 align="center"></h2>
-<br>
-
+<br><br>
 
 # Laravel Mailsceptor
 
