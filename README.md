@@ -7,7 +7,7 @@
 </h2>
 
 <h6 align="center">
-    Intercept emails before they're submitted allowing you to redirect to alternative destinations, store output, view output via route and test development emails.
+    Intercept emails before they're submitted, allowing you to redirect to alternative destinations, store output, view output via route and test development emails.
 </h6>
 
 <p align="center">
