@@ -49,4 +49,4 @@ That's it. Send an email using a Laravel driver and enjoy.
 
 ## License
 
-This library is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
+This library is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
