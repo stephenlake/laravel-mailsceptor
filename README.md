@@ -12,7 +12,7 @@
 
 <p align="center">
 <a href="https://travis-ci.org/stephenlake/laravel-mailsceptor"><img src="https://travis-ci.org/stephenlake/laravel-mailsceptor.svg?branch=master" alt="Build Status"></a>
-<a href="https://github.styleci.io/repos/142787719"><img src="https://github.styleci.io/repos/142787719/shield?branch=master" alt="StyleCI"></a>
+<a href="https://github.styleci.io/repos/148940371"><img src="https://github.styleci.io/repos/148940371/shield?branch=master" alt="StyleCI"></a>
 <a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://img.shields.io/github/release/stephenlake/laravel-mailsceptor.svg" alt="Release"></a>
 <a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
