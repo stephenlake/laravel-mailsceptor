@@ -9,16 +9,17 @@ class EmailIntercepted
     use SerializesModels;
 
     /**
-     * The Swift message container
+     * The Swift message container.
      *
      * @var Swift_Mime_SimpleMessage
      */
     public $message;
 
     /**
-     * Create a new event instance with the email message content
+     * Create a new event instance with the email message content.
      *
-     * @param  \Swift_Mime_SimpleMessage  $order
+     * @param \Swift_Mime_SimpleMessage $order
+     *
      * @return void
      */
     public function __construct(\Swift_Mime_SimpleMessage $message)

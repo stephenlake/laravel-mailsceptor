@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateEmailsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -18,7 +17,7 @@ class CreateEmailsTable extends Migration
         // Because we love flexiblity, but not too much flexiblity!
         //
         $model = config('mailsceptor.database.model', \Mailsceptor\Models\Email::class);
-        $model = new $model;
+        $model = new $model();
 
         $modelTable = $model->getTable();
         $modelKeyType = $model->getTableKeyType();
@@ -34,7 +33,6 @@ class CreateEmailsTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -43,7 +41,7 @@ class CreateEmailsTable extends Migration
     public function down()
     {
         $model = config('mailsceptor.database.model', \Mailsceptor\Models\Email::class);
-        $model = new $model;
+        $model = new $model();
 
         $modelTable = $model->getTable();
 

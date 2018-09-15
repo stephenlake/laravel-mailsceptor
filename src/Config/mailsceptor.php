@@ -17,9 +17,8 @@ return [
 
     'database' => [
         'enabled' => env('MAILSCEPTOR_DATABASE_ENABLED', false),
-        'model' => \Mailsceptor\Models\Email::class
+        'model'   => \Mailsceptor\Models\Email::class,
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -34,15 +33,14 @@ return [
     */
 
     'redirect' => [
-        'enabled' => env('MAILSCEPTOR_REDIRECT_ENABLED', false),
+        'enabled'      => env('MAILSCEPTOR_REDIRECT_ENABLED', false),
         'destinations' => [
             env('MAILSCEPTOR_REDIRECT_DESTINATIONS', [
               'email1@example.org',
-              'email2@example.org'
-            ])
-        ]
+              'email2@example.org',
+            ]),
+        ],
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -65,11 +63,10 @@ return [
     */
 
     'event' => [
-      'enabled' => env('MAILSCEPTOR_EVENT_ENABLED', false),
-      'event' => \Mailsceptor\Events\EmailIntercepted::class,
-      'allowContinue' => true
+      'enabled'       => env('MAILSCEPTOR_EVENT_ENABLED', false),
+      'event'         => \Mailsceptor\Events\EmailIntercepted::class,
+      'allowContinue' => true,
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -87,9 +84,9 @@ return [
     |
     */
     'preview' => [
-      'enabled' => env('MAILSCEPTOR_PREVIEW_ENABLED', false),
-      'path' => sys_get_temp_dir(),
-      'overwriteLast' => true
+      'enabled'       => env('MAILSCEPTOR_PREVIEW_ENABLED', false),
+      'path'          => sys_get_temp_dir(),
+      'overwriteLast' => true,
     ],
 
 ];

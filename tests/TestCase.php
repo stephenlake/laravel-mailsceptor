@@ -11,13 +11,13 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setup();
 
-        $this->app->setBasePath(__DIR__ . '/../');
+        $this->app->setBasePath(__DIR__.'/../');
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            \Mailsceptor\MailsceptorServiceProvider::class
+            \Mailsceptor\MailsceptorServiceProvider::class,
         ];
     }
 
