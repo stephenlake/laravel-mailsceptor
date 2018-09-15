@@ -6,7 +6,7 @@
     Laravel Mailsceptor
 </h2>
 
-<h6 align="center">
+<h6 align="center" style="width: 500px;">
     Intercept emails before they're submitted, allowing you to redirect to alternative destinations, store output, view output via route and test development emails.
 </h6>
 
