@@ -2,14 +2,15 @@
     <img src="https://i.imgur.com/LazjHZN.png" width="120"/>
 </h6>
 
-<h2 align="center">
+<h3 align="center">
     Laravel Mailsceptor
-</h2>
+</h3>
 
 <h6 align="center" style="max-width: 500px;">
     Intercept emails before they're submitted, allowing you to redirect to alternative destinations, store output, view output via route and test development emails.
 </h6>
-
+<h2 align="center">
+ 
 <p align="center">
 <a href="https://travis-ci.org/stephenlake/laravel-mailsceptor"><img src="https://travis-ci.org/stephenlake/laravel-mailsceptor.svg?branch=master" alt="Build Status"></a>
 <a href="https://github.styleci.io/repos/148940371"><img src="https://github.styleci.io/repos/148940371/shield?branch=master" alt="StyleCI"></a>
@@ -17,7 +18,9 @@
 <a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-<br/><br/>
+<br><br>
+
+</h2>
 
 # Laravel Mailsceptor
 
