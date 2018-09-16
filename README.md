@@ -35,11 +35,7 @@ Publish and edit the configuration file accordingly
 
     php artisan vendor:publish --provider=Mailsceptor\MailsceptorServiceProvider:class
 
-Run the migrations (Only required if `database.enabled=true` in `config/mailsceptor.php`)
-
-    php artisan migrate
-
-That's it. Send an email using a Laravel driver and enjoy.
+That's it. Send an email using a Laravel driver and enjoy. See the full documentation below for further functionality and configuration settings.
 
 #### See [extended documentation](https://stephenlake.github.io/laravel-mailsceptor)
 
