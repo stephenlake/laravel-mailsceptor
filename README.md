@@ -33,7 +33,7 @@ Register the service provider in `config/app.php` (Not required in Laravel 5.7+)
 
 Publish and edit the configuration file accordingly
 
-    php artisan vendor:publish --provider=Mailsceptor\MailsceptorServiceProvider:class
+    php artisan vendor:publish --provider="Mailsceptor\MailsceptorServiceProvider"
 
 That's it. Send an email using a Laravel driver and enjoy.
 

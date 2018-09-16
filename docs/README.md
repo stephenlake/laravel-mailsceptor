@@ -32,7 +32,7 @@ Register the service provider in `config/app.php` (Not required in Laravel 5.7+)
 
 Publish the configuration file accordingly
 
-    php artisan vendor:publish --provider=Mailsceptor\MailsceptorServiceProvider:class
+    php artisan vendor:publish --provider="Mailsceptor\MailsceptorServiceProvider"
 
 Run through the documenation and modify according to your needs.
 
