@@ -2,7 +2,7 @@
     <img src="https://github.com/stephenlake/laravel-mailsceptor/blob/master/res/laravel-mailsceptor.png"/>
 </h6>
 
-<h6 align="center" style="max-width: 500px;">
+<h6 align="center">
     Intercept, reroute, store and/or preview emails before they're submitted.
 </h6>
 
