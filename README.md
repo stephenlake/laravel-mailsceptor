@@ -35,9 +35,9 @@ Publish and edit the configuration file accordingly
 
     php artisan vendor:publish --provider=Mailsceptor\MailsceptorServiceProvider:class
 
-That's it. Send an email using a Laravel driver and enjoy. See the full documentation below for further functionality and configuration settings.
+That's it. Send an email using a Laravel driver and enjoy. See the full documentation below 
 
-#### See [extended documentation](https://stephenlake.github.io/laravel-mailsceptor)
+#### See [extended documentation](https://stephenlake.github.io/laravel-mailsceptor) for further configuration and tweaking.
 
 ## License
 
