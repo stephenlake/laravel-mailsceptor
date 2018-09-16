@@ -4,19 +4,18 @@ namespace Mailsceptor;
 
 use Illuminate\Mail\Transport\Transport as LaravelMailTransport;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 
 class MailsceptorTransport extends LaravelMailTransport
 {
     /**
-     * Top level mailer instance
+     * Top level mailer instance.
      *
      * @var \Swift_Mailer
      */
     private $mailer;
 
     /**
-     * Mailsceptor config
+     * Mailsceptor config.
      *
      * @var array
      */
@@ -74,13 +73,13 @@ class MailsceptorTransport extends LaravelMailTransport
 
         if ($databaseEnabled) {
             $model = $this->config['database']['model'] ?? \Mailsceptor\Models\Email::class;
-            $model = new $model;
+            $model = new $model();
             $model->create([
                 'body'    => $mailBody,
                 'to'      => $mailTo,
                 'cc'      => $mailCc,
                 'bcc'     => $mailBcc,
-                'subject' => $mailSubject
+                'subject' => $mailSubject,
             ]);
         }
 
@@ -89,11 +88,11 @@ class MailsceptorTransport extends LaravelMailTransport
         if ($previewEnabled) {
             $overwriteLast = $this->config['preview']['overwriteLast'] ?? true;
 
-            $file = $this->config['preview']['path'] . '/' . ($overwriteLast ? 'mailsceptor-preview.html' : 'mainsceptor-preview-' . microtime() . '.html');
+            $file = $this->config['preview']['path'].'/'.($overwriteLast ? 'mailsceptor-preview.html' : 'mainsceptor-preview-'.microtime().'.html');
 
             file_put_contents($file, $message->getBody());
 
-            Log::info('Mailsceptor created email preview: file://' . $file);
+            Log::info('Mailsceptor created email preview: file://'.$file);
         }
 
         $mayContinue = true;
