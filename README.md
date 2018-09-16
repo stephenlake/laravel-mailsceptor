@@ -1,10 +1,6 @@
 <h6 align="center">
-    <img src="https://i.imgur.com/LazjHZN.png" width="120"/>
+    <img src="https://github.com/stephenlake/laravel-mailsceptor/blob/master/res/laravel-mailsceptor.png"/>
 </h6>
-
-<h3 align="center">
-    Laravel Mailsceptor
-</h3>
 
 <h6 align="center" style="max-width: 500px;">
     Intercept, reroute, store and/or preview emails before they're submitted.
