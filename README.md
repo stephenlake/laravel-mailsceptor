@@ -37,7 +37,7 @@ Publish and edit the configuration file accordingly
 
 That's it. Send an email using a Laravel driver and enjoy.
 
-#### See [extended documentation](https://stephenlake.github.io/laravel-mailsceptor) for further configuration and tweaking.
+#### See [documentation](https://stephenlake.github.io/laravel-mailsceptor) for configuration and usage.
 
 ## License
 
