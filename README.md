@@ -17,7 +17,7 @@
 
 # Laravel Mailsceptor
 
-**Laravel Mailsceptor** cathes outgoing emails before they're submitted where you can modify the message recipients and save the output while still allowing the regular email sending process to continue as usual with any existing email drivers in place.
+**Laravel Mailsceptor** catches outgoing emails before they're submitted where you can modify the message recipients and save the output while still allowing the regular email sending process to continue as usual with any existing email drivers in place.
 
 Made with ❤️ by [Stephen Lake](http://stephenlake.github.io/)
 
