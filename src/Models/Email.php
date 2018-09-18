@@ -32,9 +32,9 @@ class Email extends Model
      * @var array
      */
     protected $casts = [
-      'to' => 'array',
-      'cc' => 'array',
-      'bcc' => 'array'
+      'to'  => 'array',
+      'cc'  => 'array',
+      'bcc' => 'array',
     ];
 
     /**

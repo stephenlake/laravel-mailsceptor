@@ -2,11 +2,9 @@
 
 namespace Mailsceptor\Tests;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Mailsceptor\Tests\Models\Sample;
 
 abstract class TestCase extends BaseTestCase
 {
