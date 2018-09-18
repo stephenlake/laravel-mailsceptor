@@ -3,7 +3,7 @@
 namespace Mailsceptor;
 
 use Illuminate\Mail\Transport\Transport as LaravelMailTransport;
-use Illuminate\Support\Facades\Log;
+use Mailsceptor\Hooks;
 
 class MailsceptorTransport extends LaravelMailTransport
 {
@@ -20,6 +20,20 @@ class MailsceptorTransport extends LaravelMailTransport
      * @var array
      */
     private $config;
+
+    /**
+     * The mailer original message instance.
+     *
+     * @var Swift_Mime_SimpleMessage
+     */
+    private $originalMessage;
+
+    /**
+     * The mailer message instance.
+     *
+     * @var Swift_Mime_SimpleMessage
+     */
+    private $hookedMessage;
 
     /**
      * Construct!
@@ -45,68 +59,66 @@ class MailsceptorTransport extends LaravelMailTransport
      */
     public function send(\Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
     {
-        $mailTo = implode(',', array_keys($message->getTo() ?? []));
-        $mailBody = $message->getBody();
-        $mailSubject = $message->getSubject();
-        $mailCc = implode(',', array_keys($message->getCc() ?? []));
-        $mailBcc = implode(',', array_keys($message->getBcc() ?? []));
+        $this->originalMessage = $message;
+        $this->hookedMessage = $message;
 
-        $redirectEnabled = $this->config['redirect']['enabled'] ?? false;
+        $this->handleEventHook();
+        $this->handleRedirectHook();
+        $this->handleDatabaseHook();
 
-        if ($redirectEnabled) {
-            $redirectDestinations = $this->config['redirect']['destinations'];
-
-            if (!is_array($redirectDestinations)) {
-                $redirectDestinations = [$redirectDestinations];
-            }
-
-            $mailTo = implode(',', $redirectDestinations);
-            $mailBody = $message->getBody();
-            $mailSubject = $message->getSubject();
-
-            $message->setTo(null);
-            $message->setBcc($redirectDestinations);
-            $message->setSubject($mailSubject);
+        if ($this->config['proceedAfterHooks']) {
+            $this->mailer->send($this->originalMessage);
         }
+    }
 
-        $databaseEnabled = $this->config['database']['enabled'] ?? false;
-
-        if ($databaseEnabled) {
+    /**
+     * Handle database hook.
+     *
+     *
+     * @return void
+     */
+    private function handleDatabaseHook()
+    {
+        if (($this->config['database']['enabled'] ?? false)) {
             $model = $this->config['database']['model'] ?? \Mailsceptor\Models\Email::class;
             $model = new $model();
             $model->create([
-                'body'    => $mailBody,
-                'to'      => $mailTo,
-                'cc'      => $mailCc,
-                'bcc'     => $mailBcc,
-                'subject' => $mailSubject,
+                'subject' => $this->originalMessage->getSubject(),
+                'body'    => $this->originalMessage->getBody(),
+                'to'      => json_encode($this->originalMessage->getTo()),
+                'cc'      => json_encode($this->originalMessage->getCc()),
+                'bcc'     => json_encode($this->originalMessage->getBcc()),
             ]);
         }
+    }
 
-        $previewEnabled = $this->config['preview']['enabled'] ?? false;
-
-        if ($previewEnabled) {
-            $overwriteLast = $this->config['preview']['overwriteLast'] ?? true;
-
-            $file = $this->config['preview']['path'].'/'.($overwriteLast ? 'mailsceptor-preview.html' : 'mainsceptor-preview-'.microtime().'.html');
-
-            file_put_contents($file, $message->getBody());
-
-            Log::info('Mailsceptor created email preview: file://'.$file);
+    /**
+     * Handle event hook.
+     *
+     *
+     * @return void
+     */
+    private function handleEventHook()
+    {
+        if (($this->config['event']['enabled'] ?? true)) {
+            event(new $this->config['event']['event']($this->originalMessage));
         }
+    }
 
-        $mayContinue = true;
+    /**
+     * Handle redirect hook.
+     *
+     *
+     * @return void
+     */
+    private function handleRedirectHook()
+    {
+        if (($this->config['redirect']['enabled'] ?? false)) {
+            $this->hookedMessage->setTo(null);
+            $this->hookedMessage->setCc(null);
+            $this->hookedMessage->setBcc($this->config['redirect']['destinations']);
 
-        $eventEnabled = $this->config['event']['enabled'] ?? true;
-
-        if ($eventEnabled) {
-            event(new $this->config['event']['event']($message));
-
-            $mayContinue = $this->config['event']['allowContinue'];
-        }
-
-        if ($mayContinue) {
-            $this->mailer->send($message);
+            $this->mailer->send($this->hookedMessage);
         }
     }
 }

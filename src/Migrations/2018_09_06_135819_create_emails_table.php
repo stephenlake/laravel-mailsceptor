@@ -13,9 +13,6 @@ class CreateEmailsTable extends Migration
      */
     public function up()
     {
-        //
-        // Because we love flexiblity, but not too much flexiblity!
-        //
         $model = config('mailsceptor.database.model', \Mailsceptor\Models\Email::class);
         $model = new $model();
 

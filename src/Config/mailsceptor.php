@@ -4,6 +4,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Proceed After Hooks
+    |--------------------------------------------------------------------------
+    |
+    | If set to true, the original message as it were unmodified will be submitted
+    | to the original recipient after all hooks have been executed.
+    |
+    */
+    'proceedAfterHooks' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Migration
     |--------------------------------------------------------------------------
     |
@@ -65,28 +76,5 @@ return [
     'event' => [
       'enabled'       => env('MAILSCEPTOR_EVENT_ENABLED', false),
       'event'         => \Mailsceptor\Events\EmailIntercepted::class,
-      'allowContinue' => true,
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Preview
-    |--------------------------------------------------------------------------
-    |
-    | If enabled, the HTML generated from the email will be saved to the defined
-    | path and a log entry will be created in the default log writer which prints
-    | the filename of the output HTML file which you can then open to view the
-    | produced content.
-    |
-    | Setting overwriteLast to true will use a single file gor every generated
-    | HTML file saving you disk space. Set to false to generate a new file for
-    | every email.
-    |
-    */
-    'preview' => [
-      'enabled'       => env('MAILSCEPTOR_PREVIEW_ENABLED', false),
-      'path'          => sys_get_temp_dir(),
-      'overwriteLast' => true,
-    ],
-
 ];
