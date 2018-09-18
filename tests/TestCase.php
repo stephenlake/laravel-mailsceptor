@@ -3,10 +3,15 @@
 namespace Mailsceptor\Tests;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Mailsceptor\Tests\Models\Sample;
 
 abstract class TestCase extends BaseTestCase
 {
+    use DatabaseMigrations;
+
     public function setup()
     {
         parent::setup();
