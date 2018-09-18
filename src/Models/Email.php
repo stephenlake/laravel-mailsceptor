@@ -27,6 +27,17 @@ class Email extends Model
     ];
 
     /**
+     * Casts attributes.
+     *
+     * @var array
+     */
+    protected $casts = [
+      'to' => 'array',
+      'cc' => 'array',
+      'bcc' => 'array'
+    ];
+
+    /**
      * Getter for $tableKeyType.
      *
      * @return array
