@@ -3,7 +3,6 @@
 namespace Mailsceptor;
 
 use Illuminate\Mail\Transport\Transport as LaravelMailTransport;
-use Mailsceptor\Hooks;
 
 class MailsceptorTransport extends LaravelMailTransport
 {

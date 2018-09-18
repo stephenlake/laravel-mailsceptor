@@ -3,7 +3,6 @@
 namespace Mailsceptor;
 
 use Illuminate\Mail\MailServiceProvider;
-use Illuminate\Support\Facades\Route;
 
 class MailsceptorServiceProvider extends MailServiceProvider
 {
