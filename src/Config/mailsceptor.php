@@ -46,8 +46,8 @@ return [
     'redirect' => [
         'enabled'      => env('MAILSCEPTOR_REDIRECT_ENABLED', false),
         'destinations' => env('MAILSCEPTOR_REDIRECT_DESTINATIONS', [
-              'email1@example.org',
-              'email2@example.org',
+              'email1@example.org' => 'Example Name 1',
+              'email2@example.org' => 'Example Name 2',
          ]),
     ],
 
