@@ -25,7 +25,7 @@ Made with ❤️ by [Stephen Lake](http://stephenlake.github.io/)
 
 Install the package via composer.
 
-    composer require stephenlake/laravel-mailsceptor
+    composer require-dev stephenlake/laravel-mailsceptor
 
 Register the service provider in `config/app.php` (Not required in Laravel 5.7+)
 
