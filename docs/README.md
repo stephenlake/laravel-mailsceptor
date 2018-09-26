@@ -20,7 +20,7 @@ https://img.shields.io/travis/stephenlake/laravel-mailsceptor/master.svg?style=f
 
 Install the package via composer.
 
-    composer require stephenlake/laravel-mailsceptor
+    composer require-dev stephenlake/laravel-mailsceptor
 
 ## Register Service Provider
 
