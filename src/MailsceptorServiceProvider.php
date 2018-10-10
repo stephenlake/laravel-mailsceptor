@@ -16,7 +16,7 @@ class MailsceptorServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/Config/mailsceptor.php'                               => config_path('mailsceptor.php'),
-            __DIR__.'/Migrations/2018_09_06_135819_create_emails_table.php' => database_path('migrations'),
+            __DIR__.'/Migrations/2018_09_06_135819_create_emails_table.php' => database_path('migrations/2018_09_06_135819_create_emails_table.php'),
         ]);
 
         $this->registerListener();
