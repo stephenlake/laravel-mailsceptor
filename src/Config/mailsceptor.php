@@ -38,6 +38,6 @@ return [
     |
     */
 
-    'redirect' => env('MAILSCEPTOR_REDIRECT_DESTINATION', false)
+    'redirect' => env('MAILSCEPTOR_REDIRECT_DESTINATION', false),
 
 ];
