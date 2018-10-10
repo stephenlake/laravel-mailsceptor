@@ -11,7 +11,7 @@ return [
     | to the original recipient after all hooks have been executed.
     |
     */
-    'proceedAfterHooks' => true,
+    'proceedAfterHooks' => env('MAILSCEPTOR_PROCEED_AFTER', true),
 
     /*
     |--------------------------------------------------------------------------
