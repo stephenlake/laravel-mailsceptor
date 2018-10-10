@@ -15,64 +15,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Migration
+    | Database Storage
     |--------------------------------------------------------------------------
     |
-    | If you would like to make use of Mailsceptor's email model and store all
-    | emails in the database, enable it here. You can extend the base model
-    | with your own class if you wish. The migration primary key of the table
-    | will use defined 'tableKeyType' aatribute defined on the model which
-    | defaults to 'increments'.
+    | If you would like to store all outgoing emails to database, you can use
+    | the default provided model or your own which extends the default.
+    |
+    | Comment out the following line or set to false to disable.
     |
     */
 
-    'database' => [
-        'enabled' => env('MAILSCEPTOR_DATABASE_ENABLED', false),
-        'model'   => \Mailsceptor\Models\Email::class,
-    ],
+    'model' => \Mailsceptor\Models\Email::class,
 
     /*
     |--------------------------------------------------------------------------
     | Redirect
     |--------------------------------------------------------------------------
     |
-    | During local testing, you may want to intercept and redirect all outgoing
-    | emails to your own email address or a list of developer addresses. You
-    | may do so here by enabling redirect and providing them in the destinations
-    | array. All outgoing emails will be rerouted.
+    | You can redirect outgoing emails to an alternative or additional email
+    | address using the below. When the above 'proceeedAfterHooks' is set to
+    | false, all outgoing emails will *only* be sent to this address.
     |
     */
 
-    'redirect' => [
-        'enabled'      => env('MAILSCEPTOR_REDIRECT_ENABLED', false),
-        'destinations' => [
-              'email1@example.org' => 'Example Name 1',
-              'email2@example.org' => 'Example Name 2',
-         ],
-    ],
+    'redirect' => env('MAILSCEPTOR_REDIRECT_DESTINATION', false)
 
-    /*
-    |--------------------------------------------------------------------------
-    | Event
-    |--------------------------------------------------------------------------
-    |
-    | If enabled, the defined event will be fired whenever an email is caught
-    | by the intercepter. This allows you to define your own logic or handling
-    | of caught messages. An instance of Swift_Mime_SimpleMessage will be passed
-    | to the event class.
-    |
-    | See https://laravel.com/docs/master/events for information on creating
-    | an event listener.
-    |
-    | Important: If allowContinue is set to false, even if redirect is disabled
-    | the email will be caught and will NOT be submitted to its destination. This
-    | should only be set to false if you wish to handle the email submission
-    | yourself via a custom driver or other means.
-    |
-    */
-
-    'event' => [
-      'enabled'       => env('MAILSCEPTOR_EVENT_ENABLED', false),
-      'event'         => \Mailsceptor\Events\EmailIntercepted::class,
-    ],
 ];

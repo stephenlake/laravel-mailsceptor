@@ -2,9 +2,11 @@
 
 namespace Mailsceptor;
 
-use Illuminate\Mail\MailServiceProvider;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 
-class MailsceptorServiceProvider extends MailServiceProvider
+class MailsceptorServiceProvider extends ServiceProvider
 {
     /**
      * Boot up Mailsceptor.
@@ -15,30 +17,16 @@ class MailsceptorServiceProvider extends MailServiceProvider
     {
         $this->publishes([
             __DIR__.'/Config/mailsceptor.php' => config_path('mailsceptor.php'),
+            __DIR__.'/Migrations/2018_09_06_135819_create_emails_table.php' => database_path('migrations')
         ]);
 
-        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->registerListener();
     }
 
-    /**
-     * Register the core swift mailed with mailsceptor as an outer layer.
-     *
-     * @return void
-     */
-    public function registerSwiftMailer()
+    private function registerListener()
     {
-        parent::registerSwiftMailer();
-
-        $this->registerMailsceptorSwiftMailer();
-    }
-
-    /**
-     * Replace the swift mailer instance with Mailsceptor as a hook.
-     *
-     * @return void
-     */
-    private function registerMailsceptorSwiftMailer()
-    {
-        $this->app['swift.mailer'] = new \Swift_Mailer(new MailsceptorTransport($this->app['swift.mailer']));
+        Event::listen(\Illuminate\Mail\Events\MessageSending::class, function ($event) {
+            return (new MailsceptorInterception($event->message))->intercept();
+        });
     }
 }
