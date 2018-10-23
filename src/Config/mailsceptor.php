@@ -4,17 +4,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Proceed After Hooks
-    |--------------------------------------------------------------------------
-    |
-    | If set to true, the original message as it were unmodified will be submitted
-    | to the original recipient after all hooks have been executed.
-    |
-    */
-    'proceedAfterHooks' => env('MAILSCEPTOR_PROCEED_AFTER', true),
-
-    /*
-    |--------------------------------------------------------------------------
     | Database Storage
     |--------------------------------------------------------------------------
     |
@@ -39,5 +28,28 @@ return [
     */
 
     'redirect' => env('MAILSCEPTOR_REDIRECT_DESTINATION', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Before Hooks
+    |--------------------------------------------------------------------------
+    |
+    | This class will be executed before any internal Mailsceptor hooks are
+    | processed, by extending MailsceptorHook::class, you can define your own
+    | hook to run before the internals. See the documentation for details.
+    |
+    */
+    'beforeHook' => \Mailsceptor\MailsceptorHook::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Proceed After Hooks
+    |--------------------------------------------------------------------------
+    |
+    | If set to true, the original message as it were unmodified will be submitted
+    | to the original recipient after all hooks have been executed.
+    |
+    */
+    'proceedAfterHooks' => env('MAILSCEPTOR_PROCEED_AFTER', true),
 
 ];

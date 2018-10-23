@@ -4,7 +4,7 @@ namespace Mailsceptor;
 
 use Illuminate\Support\Facades\Mail;
 
-class MailsceptorInterception
+class Mailsception
 {
     /**
      * The Swift message container.
@@ -26,10 +26,26 @@ class MailsceptorInterception
         $this->config = config('mailsceptor');
     }
 
+    /**
+     * Process hooks
+     *
+     * @return void
+     */
     public function intercept()
     {
-        $this->handleRedirectHook();
-        $this->handleDatabaseHook();
+        $continue = true;
+
+        if (isset($this->config['beforeHook']) && class_exists($this->config['beforeHook'])) {
+            $beforeHook = new $this->config['beforeHook']();
+            $beforeHook->hook($this->message);
+
+            $continue = $beforeHook->process();
+        }
+
+        if ($continue) {
+            $this->handleRedirectHook();
+            $this->handleDatabaseHook();
+        }
 
         return $this->config['proceedAfterHooks'];
     }
@@ -69,14 +85,10 @@ class MailsceptorInterception
                 $intendedDestination = '';
             }
 
-            if (!is_string($destination)) {
-                $destination = 'sample@example.org';
-            }
-
             if ($intendedDestination != $destination) {
                 Mail::send([], [], function ($m) use ($destination) {
                     $m->to($destination)
-                      ->subject($this->message->getSubject())
+                      ->subject("[Mailsceptor] {$this->message->getSubject()}")
                       ->setBody($this->message->getBody(), 'text/html');
                 });
             }
