@@ -36,47 +36,4 @@ class Email extends Model
       'cc'  => 'array',
       'bcc' => 'array',
     ];
-
-    /**
-     * Getter for $tableKeyType.
-     *
-     * @return array
-     */
-    public function getTableKeyType()
-    {
-        return $this->tableKeyType;
-    }
-
-    /**
-     * Mutator for the to attribute. Returns an array of email
-     * addresses from the raw comma separated line.
-     *
-     * @return array
-     */
-    public function getToAttribute($value)
-    {
-        return explode(',', $value);
-    }
-
-    /**
-     * Mutator for the cc attribute. Returns an array of email
-     * addresses from the raw comma separated line.
-     *
-     * @return array
-     */
-    public function getCcAttribute($value)
-    {
-        return explode(',', $value);
-    }
-
-    /**
-     * Mutator for the bcc attribute. Returns an array of email
-     * addresses from the raw comma separated line.
-     *
-     * @return array
-     */
-    public function getBccAttribute($value)
-    {
-        return explode(',', $value);
-    }
 }
