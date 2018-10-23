@@ -53,7 +53,7 @@ If you do not wish to use the redirection option, enter a value of `false`.
 
 If you wish to store emails in the database, you'll need to publish the migration:
 
-    php artisan vendor:publish --provider="Mailsceptor\MailsceptorServiceProvider" --tag="migration"
+    php artisan vendor:publish --provider="Mailsceptor\MailsceptorServiceProvider" --tag="migrations"
 
 Then run
 
