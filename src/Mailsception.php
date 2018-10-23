@@ -27,7 +27,7 @@ class Mailsception
     }
 
     /**
-     * Process hooks
+     * Process hooks.
      *
      * @return void
      */
