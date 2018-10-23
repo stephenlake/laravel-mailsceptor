@@ -25,13 +25,7 @@ Made with ❤️ by [Stephen Lake](http://stephenlake.github.io/)
 
 Install the package via composer.
 
-    composer require-dev stephenlake/laravel-mailsceptor
-
-Publish and edit the configuration file accordingly
-
-    php artisan vendor:publish --provider="Mailsceptor\MailsceptorServiceProvider"
-
-That's it. Send an email using a Laravel driver and enjoy.
+    composer require stephenlake/laravel-mailsceptor
 
 #### See [documentation](https://stephenlake.github.io/laravel-mailsceptor) for configuration and usage.
 
