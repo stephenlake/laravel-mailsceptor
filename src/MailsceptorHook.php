@@ -15,7 +15,7 @@ class MailsceptorHook
      */
     public function hooked(\Swift_Message $swiftMessage)
     {
-        $this->swiftMessage = $message;
+        $this->swiftMessage = $swiftMessage;
 
         return $this->process();
     }
