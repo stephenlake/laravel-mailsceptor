@@ -37,7 +37,7 @@ class Mailsception
 
         if (isset($this->config['beforeHook']) && class_exists($this->config['beforeHook'])) {
             $beforeHook = new $this->config['beforeHook']();
-            $beforeHook->hook($this->message);
+            $beforeHook->hooked($this->message);
 
             $continue = $beforeHook->process();
         }
@@ -62,9 +62,9 @@ class Mailsception
             $model->create([
                 'subject' => $this->message->getSubject(),
                 'body'    => $this->message->getBody(),
-                'to'      => json_encode($this->message->getTo()),
-                'cc'      => json_encode($this->message->getCc()),
-                'bcc'     => json_encode($this->message->getBcc()),
+                'to'      => $this->message->getTo() ? array_keys($this->message->getTo()) : [],
+                'cc'      => $this->message->getCc() ? array_keys($this->message->getCc()) : [],
+                'bcc'     => $this->message->getBcc() ? array_keys($this->message->getBcc()) : [],
             ]);
         }
     }
@@ -93,5 +93,15 @@ class Mailsception
                 });
             }
         }
+    }
+
+    /**
+     * Overload constructed configuration file.
+     *
+     * @return void
+     */
+    public function setConfig(array $config)
+    {
+        $this->config = $config;
     }
 }
