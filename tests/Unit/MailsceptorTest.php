@@ -24,17 +24,12 @@ class MailsceptorTest extends TestCase
 
         $emails = Email::get();
 
-        $this->assertTrue($emails->count() == 2);
+        $this->assertTrue($emails->count() > 0);
 
-        $redirectedEmail = Email::find(1);
-        $originalEmail = Email::find(2);
-
-        $this->assertTrue($redirectedEmail->subject == "[Mailsceptor] {$emailSubject}");
+        $redirectedEmail = Email::first();
+ 
+        $this->assertTrue($redirectedEmail->subject == $emailSubject);
         $this->assertTrue($redirectedEmail->body == $emailBody);
-        $this->assertTrue($redirectedEmail->to[0] == $this->app['config']->get('mailsceptor.redirect'));
-
-        $this->assertTrue($originalEmail->subject == $emailSubject);
-        $this->assertTrue($originalEmail->body == $emailBody);
-        $this->assertTrue($originalEmail->to[0] == $emailTo);
+        $this->assertTrue($redirectedEmail->to[0] == $emailTo);
     }
 }
