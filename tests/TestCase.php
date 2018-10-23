@@ -2,8 +2,8 @@
 
 namespace Mailsceptor\Tests;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -20,6 +20,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
+            \Illuminate\Mail\MailServiceProvider::class,
             \Mailsceptor\MailsceptorServiceProvider::class,
         ];
     }
@@ -32,5 +33,23 @@ abstract class TestCase extends BaseTestCase
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+
+        $app['config']->set('mail.driver', 'LOG');
+
+        $app['config']->set('mailsceptor.proceedAfterHooks', false);
+        $app['config']->set('mailsceptor.model', \Mailsceptor\Models\Email::class);
+        $app['config']->set('mailsceptor.beforeHook', \Mailsceptor\MailsceptorHook::class);
+        $app['config']->set('mailsceptor.redirect', 'stephen@closurecode.com');
+
+        Schema::dropIfExists('emails');
+        Schema::create('emails', function ($table) {
+            $table->increments('id');
+            $table->string('subject')->nullable();
+            $table->string('body')->nullable();
+            $table->string('to')->nullable();
+            $table->string('cc')->nullable();
+            $table->string('bcc')->nullable();
+            $table->timestamps();
+        });
     }
 }
