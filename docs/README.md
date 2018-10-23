@@ -24,7 +24,7 @@ Publish the configuration file.
 
 ## Setup your email driver
 
-This package does not intefere with mail driver configurations nor does it provide free credentials. You will need to setup your mail driver with its credentials in order to use the package successfully.
+This package does not interfere with mail driver configurations nor does it provide free credentials. You will need to setup your mail driver with its credentials in order to use the package successfully.
 
 # Usage
 
