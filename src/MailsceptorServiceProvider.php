@@ -28,6 +28,12 @@ class MailsceptorServiceProvider extends ServiceProvider
     private function registerListener()
     {
         Event::listen(\Illuminate\Mail\Events\MessageSending::class, function ($event) {
+            $intercepted = !is_null($event->message->getHeaders()->get('x-mailscepted'));
+
+            if ($intercepted) {
+                return true;
+            }
+
             return (new Mailsception($event->message))->intercept();
         });
     }
