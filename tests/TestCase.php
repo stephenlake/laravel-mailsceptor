@@ -36,7 +36,7 @@ abstract class TestCase extends BaseTestCase
 
         $app['config']->set('mail.driver', 'log');
 
-        $app['config']->set('mailsceptor.proceedAfterHooks', false);
+        $app['config']->set('mailsceptor.proceedAfterHooks', true);
         $app['config']->set('mailsceptor.model', \Mailsceptor\Models\Email::class);
         $app['config']->set('mailsceptor.beforeHook', \Mailsceptor\MailsceptorHook::class);
         $app['config']->set('mailsceptor.redirect', 'stephen@closurecode.com');
