@@ -3,8 +3,8 @@
 namespace Mailsceptor\Tests\Unit;
 
 use Illuminate\Support\Facades\Mail;
-use Mailsceptor\Tests\TestCase;
 use Mailsceptor\Models\Email;
+use Mailsceptor\Tests\TestCase;
 
 class MailsceptorTest extends TestCase
 {
