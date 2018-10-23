@@ -47,7 +47,7 @@ class Mailsception
             $this->handleDatabaseHook();
         }
 
-        return $this->config['proceedAfterHooks'];
+        return $this->config['proceedAfterHooks'] ? true : false;
     }
 
     /**
@@ -76,18 +76,22 @@ class Mailsception
      */
     private function handleRedirectHook()
     {
-        if (($destination = ($this->config['redirect'] ?? false))) {
+        if (($redirectionTo = ($this->config['redirect'] ?? false))) {
             $intendedDestination = array_keys($this->message->getTo());
 
-            if (count($intendedDestination)) {
-                $intendedDestination = $intendedDestination[0];
-            } else {
-                $intendedDestination = '';
+            if (!count($intendedDestination)) {
+                return;
             }
 
-            if ($intendedDestination != $destination) {
-                Mail::send([], [], function ($m) use ($destination) {
-                    $m->to($destination)
+            $intendedDestination = $intendedDestination[0];
+
+            if ($intendedDestination != $redirectionTo) {
+                Mail::send([], [], function ($m) use ($redirectionTo) {
+                    $m->getSwiftMessage()
+                      ->getHeaders()
+                      ->addTextHeader('x-mailscepted', 'true');
+
+                    $m->to($redirectionTo)
                       ->subject("[Mailsceptor] {$this->message->getSubject()}")
                       ->setBody($this->message->getBody(), 'text/html');
                 });
