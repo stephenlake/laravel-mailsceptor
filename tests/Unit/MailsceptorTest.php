@@ -27,7 +27,7 @@ class MailsceptorTest extends TestCase
         $this->assertTrue($emails->count() > 0);
 
         $redirectedEmail = Email::first();
- 
+
         $this->assertTrue($redirectedEmail->subject == $emailSubject);
         $this->assertTrue($redirectedEmail->body == $emailBody);
         $this->assertTrue($redirectedEmail->to[0] == $emailTo);
