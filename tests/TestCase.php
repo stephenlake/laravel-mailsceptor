@@ -34,7 +34,7 @@ abstract class TestCase extends BaseTestCase
             'prefix'   => '',
         ]);
 
-        $app['config']->set('mail.driver', 'LOG');
+        $app['config']->set('mail.driver', 'log');
 
         $app['config']->set('mailsceptor.proceedAfterHooks', false);
         $app['config']->set('mailsceptor.model', \Mailsceptor\Models\Email::class);
