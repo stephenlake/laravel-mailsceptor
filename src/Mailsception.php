@@ -36,10 +36,7 @@ class Mailsception
         $continue = true;
 
         if (isset($this->config['beforeHook']) && class_exists($this->config['beforeHook'])) {
-            $beforeHook = new $this->config['beforeHook']();
-            $beforeHook->hooked($this->message);
-
-            $continue = $beforeHook->process();
+            $continue = (new $this->config['beforeHook']())->hooked($this->message);
         }
 
         if ($continue) {
@@ -47,7 +44,7 @@ class Mailsception
             $this->handleDatabaseHook();
         }
 
-        return $this->config['proceedAfterHooks'] ? true : false;
+        return $this->config['proceedAfterHooks'];
     }
 
     /**
