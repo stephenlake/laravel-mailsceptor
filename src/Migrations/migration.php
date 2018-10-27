@@ -13,19 +13,13 @@ class CreateEmailsTable extends Migration
      */
     public function up()
     {
-        $model = config('mailsceptor.database.model', \Mailsceptor\Models\Email::class);
-        $model = new $model();
-
-        $modelTable = $model->getTable();
-        $modelKeyType = $model->getTableKeyType();
-
-        Schema::create($modelTable, function (Blueprint $table) use ($modelKeyType) {
-            $table->$modelKeyType('id');
+        Schema::create('emails', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('subject');
-            $table->longText('body');
-            $table->text('to');
+            $table->text('to')->nullable();
             $table->text('cc')->nullable();
             $table->text('bcc')->nullable();
+            $table->longText('body');
             $table->timestamps();
         });
     }
@@ -37,11 +31,6 @@ class CreateEmailsTable extends Migration
      */
     public function down()
     {
-        $model = config('mailsceptor.database.model', \Mailsceptor\Models\Email::class);
-        $model = new $model();
-
-        $modelTable = $model->getTable();
-
-        Schema::dropIfExists($modelTable);
+        Schema::dropIfExists('emails');
     }
 }
