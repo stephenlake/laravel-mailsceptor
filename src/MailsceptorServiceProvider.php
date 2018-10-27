@@ -25,6 +25,11 @@ class MailsceptorServiceProvider extends ServiceProvider
         $this->registerListener();
     }
 
+    /**
+     * Register outgoing email listener.
+     *
+     * @return void
+     */
     private function registerListener()
     {
         Event::listen(\Illuminate\Mail\Events\MessageSending::class, function ($event) {
