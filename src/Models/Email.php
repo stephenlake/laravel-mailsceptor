@@ -7,13 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Email extends Model
 {
     /**
-     * Attribute that defines the primey key column type in migrations.
-     *
-     * @var string
-     */
-    protected $tableKeyType = 'increments';
-
-    /**
      * Fillable columns during hydration.
      *
      * @var array
