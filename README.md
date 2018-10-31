@@ -31,7 +31,7 @@ Install the package via composer.
 
 ## Requirements
 
--   Laravel 5.7 or later.
+-   Laravel 5.2 or later.
 
 ## License
 
