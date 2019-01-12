@@ -8,19 +8,16 @@
 
 <p align="center">
     <a href="https://travis-ci.org/stephenlake/laravel-mailsceptor">
-        <img src="https://img.shields.io/travis/stephenlake/laravel-mailsceptor/master.svg?style=flat-square" alt="Build Status">
-    </a>
-    <a href="https://github.styleci.io/repos/148940371">
-        <img src="https://github.styleci.io/repos/148940371/shield?branch=master&style=flat-square" alt="StyleCI">
+        <img src="https://img.shields.io/travis/stephenlake/laravel-mailsceptor/master.svg?style=for-the-badge&logo=elastic-stack&logoColor=white" alt="">
     </a>
     <a href="https://github.com/stephenlake/laravel-mailsceptor">
-        <img src="https://img.shields.io/github/release/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt="Release">
+        <img src="https://img.shields.io/github/release/stephenlake/laravel-mailsceptor.svg?style=for-the-badge&logo=vagrant&logoColor=white" alt="">
     </a>
     <a href="https://github.com/stephenlake/laravel-mailsceptor/LICENSE.md">
-        <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License">
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=read-the-docs&logoColor=white" alt="">
     </a>
     <a href="https://packagist.org/packages/stephenlake/laravel-mailsceptor">
-        <img src="https://img.shields.io/packagist/dt/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt="">
+        <img src="https://img.shields.io/packagist/dt/stephenlake/laravel-mailsceptor.svg?style=for-the-badge&logo=codeigniter&logoColor=white" alt="">
     </a>
 </p>
 
