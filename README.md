@@ -9,11 +9,12 @@
 <p align="center">
 <a href="https://travis-ci.org/stephenlake/laravel-mailsceptor"><img src="https://img.shields.io/travis/stephenlake/laravel-mailsceptor/master.svg?style=flat-square" alt=""></a>
 <a href="https://github.styleci.io/repos/148940371"><img src="https://github.styleci.io/repos/148940371/shield?branch=master&style=flat-square" alt=""></a>
-<a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://img.shields.io/github/release/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt=""></a>
-<a href="https://github.com/stephenlake/laravel-mailsceptor/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt=""></a>
+<a href="https://scrutinizer-ci.com/g/stephenlake/laravel-mailsceptor"><img src="https://img.shields.io/scrutinizer/g/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt=""></a>
 <a href="https://packagist.org/packages/stephenlake/laravel-mailsceptor">
 <img src="https://img.shields.io/packagist/dt/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt="">
 </a>
+<a href="https://github.com/stephenlake/laravel-mailsceptor"><img src="https://img.shields.io/github/release/stephenlake/laravel-mailsceptor.svg?style=flat-square" alt=""></a>
+<a href="https://github.com/stephenlake/laravel-mailsceptor/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt=""></a>
 </p>
 
 <br><br>
