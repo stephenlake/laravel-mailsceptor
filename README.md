@@ -1,5 +1,5 @@
 <h6 align="center">
-    <img src="https://raw.githubusercontent.com/stephenlake/laravel-mailsceptor/master/docs/assets/laravel-mailsceptor.png"/>
+    <img src="https://raw.githubusercontent.com/stephenlake/laravel-mailsceptor/master/docs/assets/laravel-mailsceptor-banner.png"/>
 </h6>
 
 <h6 align="center">
